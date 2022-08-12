@@ -21,8 +21,23 @@
  * @return {number[]}
  */
  var twoSum = function(nums, target) {
+
+    let held 
+    let cops = [...nums] 
+    const indices = []
+
+    for (let i = 0; i < nums.length; i++){
+       held = cops[0]
      
-     const indices = []
+        if(cops[i] != nums[i] && cops[i] + nums[i] === target){
+            console.log(`nums[${i}] + cops[${i}] = ${cops[i] + nums[i]}`)
+        }
+
+
+    }
+//   we need to hold our element 
+ 
+// loop nums and check to see if the held elment is not the same of the 
 
 //   const gotcha = nums.filter((num,i)=>{
 //       let held = i
