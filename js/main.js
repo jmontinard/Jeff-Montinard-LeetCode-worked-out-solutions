@@ -209,41 +209,74 @@ var twoSum = function(nums, target) {
 
 //-------------------//
 
-var isValid = function(s) {
-    // 1. we are given a str of chars we need to rtn a boolen  if str is vaid
-    // 2. prob have to turn into an arr to loop thru or maybe not since its a tring 
-    // 3. check to see [] {} () are the right pairs and matched  so we have A, B , C
-    let valid;
+// var isValid = function(s) {
+//     // 1. we are given a str of chars we need to rtn a boolen  if str is vaid
+//     // 2. prob have to turn into an arr to loop thru or maybe not since its a tring 
+//     // 3. check to see [] {} () are the right pairs and matched  so we have A, B , C
+//     let valid;
   
-    let a ='(', b ='{', c = '[', i;
-    const strArr = s.split('')
-    console.log(s.split(''))
+//     let a ='(', b ='{', c = '[', i, stor = []
+//     const strArr = s.split('')
+// // so we are looping thru an arr, we check if the  curr strArr[i] is === our predefined vars and then is the the next index [i+1] is === to its closing pair if so we push that pair to stor arr and if its not it wont do push anything unlesss condo is met  
+//   for(i=0; i < strArr.length; i++){
+//     // let held = strArr[0]
+//  if( strArr[i] === a && strArr[i+1] === ')'
+//     ||  strArr[i] === b && strArr[i+1] === '}'
+//     ||  strArr[i] === c && strArr[i+1] === ']'   
+//  ){
 
-
-
-
-  for(i=0; i < strArr.length; i+2){
-    let held = strArr[i]
-
-    if(strArr[i + 1] === ")" && held === a ){
+//      stor.push(strArr[i],strArr[i+1])
+//     //  held=strArr[i+2]
      
-    }
+//  }
+//   }
+// //   we can then check the lengths of arr's to see if they equal if they do its valid since it push everything utilzing the stack data structure LIFO or more so queue since we are attacking the sront
+//   valid  = (stor.length === strArr.length) ? true : false ;
+//    console.log(valid)
+// // return valid
 
-    // if(strArr[i] === a && strArr[i + 1] === ')' && strArr[i + 2] ===  
-    // || strArr[i] === b && strArr[i + 1] === '}'
-    // || strArr[i] === c && strArr[i + 1] === ']'
-    // )  valid = true
-    // else{
+// };
 
-    //     valid = false
-    // }
-    console.log(valid)
-    
+// lol still failed but we got close come back to this.
+var isValid = function(s) {
+    let a ='(', b ='{', c = '[', i, check=[], stack = [], valid
+    const strArr = s.split('')
+//  if( strArr.length === 1) return false
+if( strArr.length === 1) console.log(false)
+else {
+
+
+
+  for(i=0; i < strArr.length; i++){
+      if(  strArr[i] === a 
+        || strArr[i] === b 
+        || strArr[i] === c       
+        ){
+            stack.push(strArr[i])
+      }
+      else {
+          check.push(stack[stack.length-1], strArr[i])
+        // console.log(check)
+          if(  check[0] === a && check[1] ===')'
+            || check[0] === b && check[1] ==='}'
+            || check[0] === c && check[1] ===']'
+          ){ 
+              stack.pop()
+              check = []
+          }
+      }
   }
-  console.log(valid)
 
 
+  console.log((stack.length === 0 )? true : false)
+//   return (stack.length === 0 )? true : false
+}
 };
 
-// isValid("()[]{}")
-// isValid("()()()")
+
+
+ isValid("()[]{}")
+isValid("()()()")
+isValid("}")
+
+// stack e LIFO(Last In First Out) o
