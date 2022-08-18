@@ -280,3 +280,13 @@ isValid("()()()")
 isValid("}")
 
 // stack e LIFO(Last In First Out) o
+
+
+function sumUp(arr) {
+    let res = 0;
+    for(let num of arr) res+=num
+    console.log(res)
+}
+
+
+sumUp([1,2,3,5])
