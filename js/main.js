@@ -282,11 +282,63 @@ isValid("}")
 // stack e LIFO(Last In First Out) o
 
 
-function sumUp(arr) {
-    let res = 0;
-    for(let num of arr) res+=num
-    console.log(res)
+// function sumUp(arr) {
+//     let res = 0;
+//     for(let num of arr) res+=num
+//     console.log(res)
+// }
+
+
+// function sumUp(arr) {
+    
+//     console.log(arr.reduce((prevVal, curVal)=> prevVal+curVal, 0))
+// }
+
+
+
+
+// sumUp([1,2,3,5])
+
+
+//Data strucs linked list
+
+
+// function smth(){
+    
+// }
+
+class LinkedList {
+    constructor(){
+        this.head = null; //First ele in list 
+        this.tail = null; //last ele in list 
+    }
+    append(value){
+        const newNode = {value: value, next:null};
+        if(this.tail){
+            this.tail.next = newNode;
+        }
+        this.tail = newNode
+        if(!this.head){
+            this.head = newNode
+        }
+}
+toArray() {
+    const elements = []
+    let curNode = this.head
+    while (curNode) {
+        elements.push(curNode)
+        curNode = curNode.next
+    }
+    return elements
+} 
+
 }
 
+const linkedList1 = new LinkedList()
+linkedList1.append(1)
+linkedList1.append('q')
+linkedList1.append('haha')
+linkedList1.append(true)
+linkedList1.append(12)
 
-sumUp([1,2,3,5])
+console.log(linkedList1.toArray())
