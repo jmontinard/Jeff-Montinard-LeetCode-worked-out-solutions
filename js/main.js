@@ -307,38 +307,53 @@ isValid("}")
     
 // }
 
-class LinkedList {
-    constructor(){
-        this.head = null; //First ele in list 
-        this.tail = null; //last ele in list 
+// class LinkedList {
+//     constructor(){
+//         this.head = null; //First ele in list 
+//         this.tail = null; //last ele in list 
+//     }
+//     append(value){
+//         const newNode = {value: value, next:null};
+//         if(this.tail){
+//             this.tail.next = newNode;
+//         }
+//         this.tail = newNode
+//         if(!this.head){
+//             this.head = newNode
+//         }
+// }
+// toArray() {
+//     const elements = []
+//     let curNode = this.head
+//     while (curNode) {
+//         elements.push(curNode)
+//         curNode = curNode.next
+//     }
+//     return elements
+// } 
+
+// }
+
+// const linkedList1 = new LinkedList()
+// linkedList1.append(1)
+// linkedList1.append('q')
+// linkedList1.append('haha')
+// linkedList1.append(true)
+// linkedList1.append(12)
+
+// console.log(linkedList1.toArray())
+
+var inorderTraversal = function(root) {
+    
+    let stack , res = [], curr = root
+
+    while(curr !== null ){
+        console.log(curr)
+
     }
-    append(value){
-        const newNode = {value: value, next:null};
-        if(this.tail){
-            this.tail.next = newNode;
-        }
-        this.tail = newNode
-        if(!this.head){
-            this.head = newNode
-        }
-}
-toArray() {
-    const elements = []
-    let curNode = this.head
-    while (curNode) {
-        elements.push(curNode)
-        curNode = curNode.next
-    }
-    return elements
-} 
+    
+};
 
-}
+inorderTraversal([1,null,2,3])
 
-const linkedList1 = new LinkedList()
-linkedList1.append(1)
-linkedList1.append('q')
-linkedList1.append('haha')
-linkedList1.append(true)
-linkedList1.append(12)
 
-console.log(linkedList1.toArray())
