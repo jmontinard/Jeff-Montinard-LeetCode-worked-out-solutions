@@ -275,9 +275,9 @@ else {
 
 
 
- isValid("()[]{}")
-isValid("()()()")
-isValid("}")
+//  isValid("()[]{}")
+// isValid("()()()")
+// isValid("}")
 
 // stack e LIFO(Last In First Out) o
 
@@ -343,17 +343,285 @@ isValid("}")
 
 // console.log(linkedList1.toArray())
 
-var inorderTraversal = function(root) {
+// var inorderTraversal = function(root) {
     
-    let stack , res = [], curr = root
+//     let stack , res = [], curr = root
 
-    while(curr !== null ){
-        console.log(curr)
+//     while(curr !== null || stack.length > 0 ){
+      
+//         while(curr != null){
+//             stack.push(curr)
+//             curr = curr.left
+//         }
 
+//         curr = stack.push(curr)
+//         res.push(curr.val);
+//         // Now we visit the right subtree
+//         curr = curr.right;
+//     }
+//     console.log(res)
+    
+// };
+
+// var inorderTraversal = function(root) {
+//     // Inorder traversal: Left -> Root -> right
+    
+//     // Stack is best the sata structure to use when traversing a tree iteratively. As in recusion as well, we make the use of call stack and stack is LIFO
+//     // let stack = [], result = [];
+//     // let curr = root;
+    
+//     // // Traverse the tress
+//     // while(curr !== null || stack.length > 0) {
+//     //     // Reach the left most node of the curr subtree
+//     //     while(curr != null) {
+//     //         // Placing pointer of the curr node on the stack before traversing the node's left subtree
+//     //         stack.push(curr);
+//     //         curr = curr.left;
+//     //     }
+        
+//     //     // At this point curr is null, so we have reached the end of left subtree, since stack is LIFO, the top element of stack is the left most node in the subtree
+//     //     curr = stack.pop();
+//     //     // Add the left most node to our result array
+//     //     result.push(curr.val);
+//     //     // Now we visit the right subtree
+//     //     curr = curr.right;
+//     // }
+//     // // console.log(res)
+//     // return result;    
+
+//     return root.val
+// };
+
+//console.log(inorderTraversal([1,null,2,3]))
+
+
+// var singleNumber = function(nums) {
+
+// // let cnt = 0
+
+// // for(let i = 0; i < nums.length; i++){
+// //     cnt ^= nums[i]
+// //     console.log(cnt)
+    
+// // }
+
+// let single = 0
+// for(let num of nums){
+//     single ^=num
+// }
+// console.log(single)
+
+
+// }
+
+
+// singleNumber([2,2,1])
+
+
+
+// Stack  LIFO  
+// like a stack of books first book  on stack was the last one placed in stack so last book in is the first out = LIFIO
+// TAKE THIS EX  STACK = [] ADDING 3 EL TO stack === [1,2,3]  1 would be the first in 3 is the last in the end so that would be thr 1st out 
+
+// stack can be utiziled as a arr or Stack class  
+
+//  it use 4 methods push,pop, length, and peak  which arr can do all of this 
+
+const arStack = []
+
+// or 
+
+const  Stack = function () {
+    this.count = 0,
+    this.storage = {}
+
+    // PUSH adds a a value onto the end of stack 
+
+    this.push = (val)=>{
+        this.storage[this.count] = val
+        this.count++
     }
+
+    //POP removes a value of the end of the stack
+    this.pop = () =>{
+        if(this.count === 0) return null;
+        this.count--;
+        let res = this.storage[this.count] 
+        delete this.storage[this.count]
+        return res
+    }
+    //Len rtn size of stack so this just count 
+    this.size = () =>  this.count
+    //Peek this rtns the last val in stack
+    this.peek = (val) => this.storage[this.count-1]
+}
+
+// let myStack = new Stack()
+
+// myStack.push(1)
+// myStack.push(2)
+// myStack.push(3)
+
+// console.log(myStack.storage)
+// console.log(myStack.size())
+// console.log(myStack.count)
+// console.log(myStack.peek())
+
+// myStack.pop()
+
+// console.log(myStack.storage)
+// console.log(myStack.peek())
+
+
+
+//Sets agian like  an obj but cant have dublicates can be an arr aswell 
+
+
+let mySet = function (){
+//  collection will hold set
+ let collection = []
+ 
+ //this method will check for pres of an w and rtn T/F
+ this.has = (el) => (collection.indexOf(el) !== -1)
+
+ // rtn all vals in a set 
+ this.values = () => collection
+
+ //will check to see if el is already in collection and if not it will add
+ this.add = (el) =>{
+    //  if(this.has(el)){
+    //     return false;
+    //  }
+    //  collection.push(el)
+    //  return true
+    if(!this.has(el)){
+         collection.push(el)
+         return true
+    }
+    return false;
     
-};
+ }
+ // removes an el from set
+ this.remove = (el) =>{
+    if(this.has(el)){
+        index = collection.indexOf(el)
+      collection.splice(index,1)
+      return true
+    }
+    return false
+}
+// rtns the size of the collection 
+this.size = () => collection.length
+// rtns the union of 2 sets
+this.union =(otherSet)=>{
+ let unionSet = new mySet()
+ let firstSet = this.values()
+ let secondSet = otherSet.values()
 
-inorderTraversal([1,null,2,3])
+firstSet.forEach(e => unionSet.add(e))
+secondSet.forEach(e => unionSet.add(e))
+
+return unionset
+}
+
+//rtns the intersection of 2 sets as a new set 
+this.intersection =(otherSet)=>{
+    let intersectionSet = new mySet()
+    let firstSet = this.values()
+
+    firstSet.forEach(e=>{
+        if(otherSet.has(e)){
+            intersectionSet.add(e)
+        }
+    })
+
+    return intersectionSet
+}
+
+//rtns the difference of 2 sets as a new set  fix this for later 
+this.difference =(otherSet)=>{
+    let differenceSet = new Set()
+    let firstSet = this.values()
+
+    firstSet.forEach(e=>{
+        if(!otherSet.has(e)){
+            differenceSet.add(e)
+        }
+    })
+    return differenceSet
+}
 
 
+//test  if the set is a subset of a difference set
+this.subset =(otherSet)=>{
+    let firstSet = this.values() 
+    return firstSet.every(val => otherSet.has(val))
+}
+
+
+
+}
+let setA = new mySet()
+let setB = new mySet()
+
+setA.add('a')
+setB.add('b')
+setB.add('c')
+setB.add('a')
+setB.add('d')
+console.log(setA.values())
+
+
+console.log(setB.values())
+
+console.log(setA.intersection(setB).values())
+
+console.log(setA.difference(setB).values())
+console.log(setA.subset(setB))
+
+let setC = new Set()
+let setD = new Set()
+
+setC.add('a')
+setD.add('b')
+setD.add('c')
+setD.add('a')
+setD.add('d')
+// DIFF BTWN ES6 Set() and making ur own is the value  it is a SETiterator which you can iterate thru
+console.log(setC.values())
+
+
+console.log(setD.values())
+
+
+// function  mySet() {
+
+// } 
+
+//Queue - FIRST IN FIRST OUT FIFO  like a shoping line first in line first the check out last in line last to check out 
+
+function Queue () {
+    let collection = []
+    //prints collection to console
+    this.print = () => console.log(collection)
+
+    // will add or enque el to end of collection with push
+    this.enqueue = (el) => collection.push(el)
+
+      // will remove or deque first of collection with shift
+      this.dequeue = (el) => collection.shift(el)
+
+    // will rth the front val in coll w/p removing 
+    this.front= (el) => collection[0]
+
+    // will rtn len of coll
+    this.size = (el) => collection.length;
+
+    // will check on coll len and rtns T/F if empty or not 
+    this.isEmpty = (el) => (collection.length === 0)
+}
+
+
+
+
+//PriorityQuee
