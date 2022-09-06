@@ -625,3 +625,220 @@ function Queue () {
 
 
 //PriorityQuee
+
+
+
+// Hash tables a common way to implent maps and objs takes a key input and runs thru a hash function 
+
+
+// hash func
+
+let hash =(string, max) => {
+    //max is the max # bukets we are storing in our hash
+    let hash = 0;
+    for(let i = 0; i < string.length; i++ ){
+        hash += string.charCodeAt(i)
+    }
+    return hash % max
+}
+
+let HashTable = function () {
+    let storage = []
+    const storageLimit = 4;
+
+    this.print = function(){
+        console.log(storage)
+    }
+
+   
+  this.add = function(key, value) {
+    var index = hash(key, storageLimit);
+    if (storage[index] === undefined) {
+      storage[index] = [
+        [key, value]
+      ];
+    } else {
+      var inserted = false;
+      for (var i = 0; i < storage[index].length; i++) {
+        if (storage[index][i][0] === key) {
+          storage[index][i][1] = value;
+          inserted = true;
+        }
+      }
+      if (inserted === false) {
+        storage[index].push([key, value]);
+      }
+    }
+  };
+    this.remove = function(key){
+        let index = hash(key, storageLimit)
+        if(storage[index].length === 1 && storage[index][0][0] === key){
+         delete  storage[index]
+        } else {
+            for(let i = 0; storage[index].length; i++){
+                if(storage[index][i][0] === key ){
+                    delete storage[index][i]
+                }
+            }
+        }
+    }
+
+    this.lookup = function(key){
+        let index = hash(key, storageLimit)
+        if(storage[index] === undefined){
+          return undefined
+        }else {
+            for(let i = 0; storage[index].length; i++){
+                if(storage[index][i][0] === key ){
+                 return storage[index][i][1]
+                }
+            }
+        }
+    }
+}
+// console.log(hash('jeffe', 2))
+// let ht = new HashTable()
+// ht.add('beau', 'person')
+// ht.add('fido', 'dog')
+// ht.add('rex', 'dinosuar')
+// ht.add('tux', 'penguin')
+// console.log(ht.lookup('tux'))
+// ht.print()
+
+
+// Linked list  simliar to arr but diff
+function LinkedList(){
+    let length = 0;
+    let head = null;
+
+    let Node = function(element){
+        this.element = element,
+        this.next = null
+    }
+
+    this.size =()=>{
+     return length
+    }
+    this.head =()=>{
+        return head
+       }
+
+    this.add = (element) =>{
+        let node = new Node(element)
+
+        if(head === null){
+            head = node
+        } else{
+          let  currentNode = head
+            while(currentNode.next){
+            currentNode =  currentNode,next
+
+            }
+            currentNode.next = node 
+        }
+        length++
+    }
+
+    this.remove = function(element){
+        let currentNode = head
+        let previousNode;
+        if(currentNode.element == element){
+            head = currentNode.next
+        }else {
+            while(currentNode.element !== element){
+                previousNode = currentNode;
+                currentNode = currentNode.next
+            }
+            previousNode.next = currentNode.next
+        }
+        length --
+    }
+
+    this.isEmpty = () =>{
+         return length === 0
+    }
+
+    this.indexOf = (element) =>{
+        let currentNode = head;
+        let index = -1
+        while(currentNode){
+            index++
+            if(currentNode.element === element){
+                return index
+            }
+            currentNode = currentNode.next
+        }
+        return -1
+    }
+
+    this.elementAt = function(index) {
+        var currentNode = head;
+        var count = 0;
+        while (count < index){
+            count ++;
+            currentNode = currentNode.next
+        }
+        return currentNode.element;
+      };
+      
+      
+      this.addAt = function(index, element){
+        var node = new Node(element);
+    
+        var currentNode = head;
+        var previousNode;
+        var currentIndex = 0;
+    
+        if(index > length){
+            return false;
+        }
+    
+        if(index === 0){
+            node.next = currentNode;
+            head = node;
+        } else {
+            while(currentIndex < index){
+                currentIndex++;
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            node.next = currentNode;
+            previousNode.next = node;
+        }
+        length++;
+      }
+      
+      this.removeAt = function(index) {
+        var currentNode = head;
+        var previousNode;
+        var currentIndex = 0;
+        if (index < 0 || index >= length){
+            return null
+        }
+        if(index === 0){
+            head = currentNode.next;
+        } else {
+            while(currentIndex < index) {
+                currentIndex ++;
+                previousNode = currentNode;
+                currentNode = currentNode.next;
+            }
+            previousNode.next = currentNode.next
+        }
+        length--;
+        return currentNode.element;
+      }
+    
+}
+
+var conga = new LinkedList();
+conga.add('Kitten');
+conga.add('Puppy');
+conga.add('Dog');
+conga.add('Cat');
+conga.add('Fish');
+console.log(conga.size());
+console.log(conga.removeAt(3));
+console.log(conga.elementAt(3));
+console.log(conga.indexOf('Puppy'));
+console.log(conga.size());
