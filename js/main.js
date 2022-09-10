@@ -731,7 +731,7 @@ function LinkedList(){
         } else{
           let  currentNode = head
             while(currentNode.next){
-            currentNode =  currentNode,next
+            currentNode =  currentNode.next
 
             }
             currentNode.next = node 
