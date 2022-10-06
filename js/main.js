@@ -1097,6 +1097,7 @@
 //         curr = next
 //     }
 //     return prev
+// im tight 
 // };
 var reverseList = function(head) {
     let curr = head;
@@ -1111,6 +1112,6 @@ var reverseList = function(head) {
     }
     return prev
   };
-console.log(reverseList([1,2,3,4,5,6]))
+console.log(reverseList([1,2,3,4,5,6,7]))
 
 
