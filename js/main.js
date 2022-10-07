@@ -1115,3 +1115,21 @@ var reverseList = function(head) {
 console.log(reverseList([1,2,3,4,5,6,7]))
 
 
+//say we  have a set of russian dolls and in the smallest doll there is a piece of candy and we want that piece of candy  how could we get IT without knowing the exact num of dolls to go thru 
+
+// function processDoll(doll){
+//     //Base case which is the stopping case  that is going to check for it first 
+
+//     //if(we have fonud pece of candy) the we know we done so we can just return 'yum yum'
+    
+//     //recursive call to itself to check
+//     //else if we have no more dollors and no candy in last doll 
+//     // we can return 'no candy here =('
+//     // eles if that condo fails  
+//     // processDoll( the smaller doll)
+// }
+
+
+
+
+
