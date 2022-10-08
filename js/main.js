@@ -1149,3 +1149,35 @@ function show(){
 
 show();
 
+
+// Your task: Your task is to complete the method deleteNode() which takes two arguments: the address of the head of the linked list and an integer x. The function returns the head of the modified linked list.
+
+//User function Template for javascript
+
+/*LINKED LIST NODE
+class Node {
+  constructor(x){
+    this.data = x;
+    this.next = null;
+  }
+}
+*/
+
+// class Solution {
+//     deleteNode(head,x){
+//       //code here
+
+//     //   so we know that the head contians all of the linked list and  x is the index we want to removeat
+
+//     // create a cnt var = 0 curr = head, prev,
+
+//     // while loop ( curr != null)
+//     //prev = curr  
+//     // curr =  curr.next
+//     //cnt++
+//     //if(x === cnt)  curr.next = prev.next
+
+    
+//     }
+//   }
+  
