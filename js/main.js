@@ -1181,3 +1181,19 @@ class Node {
 //     }
 //   }
   
+//Function to sort the array using bubble sort algorithm.
+function bubbleSort(arr,n){
+    //code here
+    //bs takes a look a the first  2 elements of the array checks to see one is greater and if so swap
+
+    for(let i = 0; i < arr.length; i++){  
+        console.log(`i :  ${ arr[i]}`);      
+        for(let j = 0; j < arr[i].length; j++){ 
+            // console.log(arr[i][j]);
+            console.log(`j :  ${ arr[j]}`);      
+
+            
+        }
+
+    }
+   }
