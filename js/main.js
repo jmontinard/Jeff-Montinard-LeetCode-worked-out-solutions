@@ -1221,5 +1221,5 @@ class Node {
             curr = temp // so this way we can loop to next node 
             // console.log(curr)
            }
-           return prev + 1
+           return prev 
 };
