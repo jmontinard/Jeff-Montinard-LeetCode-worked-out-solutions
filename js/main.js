@@ -1197,3 +1197,29 @@ class Node {
 
 //     }
 //    }
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+ var reverseList = function(head) {
+    let curr = head, prev = null, temp = null
+           while(curr != null){
+            // console.log(curr.val)
+            temp = curr.next // we want to do this first bc this will copy the 2 and on      
+            curr.next = prev // this is  breaking our first pointer and reassigning it to prev which is null now 
+          
+            prev = curr // this is breaking our first pointer and reassigning it to prev which is null
+
+            curr = temp // so this way we can loop to next node 
+            // console.log(curr)
+           }
+           return prev + 1
+};
