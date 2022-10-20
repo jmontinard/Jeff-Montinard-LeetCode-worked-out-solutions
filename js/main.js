@@ -1270,32 +1270,191 @@ function countdown(n){
 //   }
 
 
-function same(a1,a2){
-if(a1.length !== a2.length) return false;
+// function same(a1,a2){
+// if(a1.length !== a2.length) return false;
 
-let frequencyCounter1 = {}
-let frequencyCounter2 = {}
+// let frequencyCounter1 = {}
+// let frequencyCounter2 = {}
 
-for(let val of a1){
-    frequencyCounter1[val] = (frequencyCounter1[val]  || 0) + 1
-  }
-for(let val of a2){
-  frequencyCounter2[val] = (frequencyCounter2[val]  || 0) + 1
+// for(let val of a1){
+//     frequencyCounter1[val] = (frequencyCounter1[val]  || 0) + 1
+//   }
+// for(let val of a2){
+//   frequencyCounter2[val] = (frequencyCounter2[val]  || 0) + 1
+// }
+
+
+// for(let key in frequencyCounter1){
+// if(!(key ** 2 in frequencyCounter2)){
+//   return false
+// }
+// if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
+//   return false
+// }
+// }
+//   console.log(frequencyCounter1)
+//   console.log(frequencyCounter2)
+//   return true
+// }
+
+//   console.log(same([1,2,4],[1,4,16]))
+//   // console.log(same([1,2,1],[1,4,]))
+
+// function validAnagram(s1,s2){
+//   //check if s2 is an anagram of s1 
+//   //edge case  1 is 
+
+//   if(s1.length !== s2.length) return false
+
+//   let freqCntr1 = {}
+//   let freqCntr2 = {}
+
+//   //check if s1 and s2 have the same fq of char
+
+//   for(let val of s1){
+//     // this is saying that for every char(val) in s1  we init a corresponding val  and it will have a key that will be 0 if none exist of the prev key and if we see that char again the key value will increment by 1
+//      freqCntr1[val] = (freqCntr1[val] || 0) + 1
+//   }
+
+//   for(let val of s2){
+//     // this is saying that for every char(val) in s1  we init a corresponding val  and it will have a key that will be 0 if none exist of the prev key and if we see that char again the key value will increment by 1
+//      freqCntr2[val] = (freqCntr2[val] || 0) + 1
+//   }
+
+//   console.log(freqCntr1)
+//   console.log(freqCntr2)
+//   //  looop freq  in the obj
+
+//   for(let key in freqCntr1) {
+//     if(freqCntr1[key] !== freqCntr2[key]) return false
+//   }
+
+//   return true
+
+// }
+
+// function validAnagram(s1,s2){
+//   //for loop version 
+//   //check if s2 is an anagram of s1 
+//   //edge case  1 is 
+
+//   if(s1.length !== s2.length) return false
+
+//   let lookup = {}
+  
+
+//   //check if s1 and s2 have the same fq of char
+
+//   for(let i = 0; i < s1.length; i++) {
+//     let letter = s1[i]
+//     //if letter exist, increment, otherwise set to 1
+//      lookup[letter]  ?  lookup[letter] += 1 : lookup[letter] = 1
+//      console.log(lookup)
+//   }
+
+//   for(let i = 0; i < s2.length; i++) {
+//     let letter = s2[i]
+//  //cant find letter or letter is 0 its not an anagram
+//      if(!lookup[letter]){
+//        return false
+//      } else {
+//       lookup[letter] -= 1
+//      }
+//      console.log(lookup)
+
+//   }
+
+//   return true
+
+// }
+
+
+
+// console.log(validAnagram('aaz' , 'zaa'))
+// console.log(validAnagram('' , ''))
+// console.log(validAnagram('car' , 'rat'))
+// console.log(validAnagram('tar' , 'rat'))
+
+// function sumZero1(ar){
+//  // mine 
+//   //is the arr sorted  in this case both are 
+
+//   //edge cases ?
+
+//   // how to do his loop thru  since we want index 
+// let p1 = ar[0];
+// let p2 = ar[ar.length - 1];
+//   // for(let val in ar){
+//   //   console.log(ar[val]);
+//   //   if(p2-p1 === 0){
+//   //     return true
+//   //   } else {
+//   //     p1= pi[val]
+//   //     p2 = ar[ar.length - 1]
+//   //   }
+//   // }
+
+//   for(let i = 0; i < ar.length; i++) {
+//     if(p2-p1 === 0){
+//           return [p2, p1];
+//         }  
+        
+//         else if(p2-p1 !== 0) {
+//           p1 = ar[i]
+//           p2 = ar[ar.length - i]
+//         }
+        
+//         // else if(p1 === p2) {
+//         //   return undefined
+//         // }
+
+
+//   }
+//   // console.log(p1,p2)
+//   // rtn the first pair of wh/ sum === 0
+// }
+
+// function sumZero(arr){
+//   let left = 0
+//   let right = arr.length - 1
+//   while(left < right) {
+//     let sum = arr[left] + arr[right]
+//     if(sum === 0) {
+//         return  [arr[left], arr[right]]
+//     } else if (sum > 0){
+//       right--
+//     } else {
+//       left++;
+//     }
+
+//   }
+
+// }
+// console.log(sumZero([-3,-2,-1,0,1,2,3]))
+
+function countUniqueValues(ar){
+// use freq or pointers 
+// find all unique values   
+
+
+// pointer way 
+//edge case 
+
+if(ar.length === 0) return 0;
+let left = 0, right = 0, unqCnt = 1;
+
+while( right < ar.length){
+right++
+if(ar[left] !== ar[right]){
+left++
+ar[left] = ar[right]
+}
+}
+return left
 }
 
+console.log(countUniqueValues([-3,-2,-1,0,1,2,3]))
+console.log(countUniqueValues([-3,-2,-2,0,1,2,3]))
+console.log(countUniqueValues([]))
+console.log(countUniqueValues([-2,-1,-1,0,1]))
 
-for(let key in frequencyCounter1){
-if(!(key ** 2 in frequencyCounter2)){
-  return false
-}
-if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
-  return false
-}
-}
-  console.log(frequencyCounter1)
-  console.log(frequencyCounter2)
-  return true
-}
-
-  console.log(same([1,2,4],[1,4,16]))
-  // console.log(same([1,2,1],[1,4,]))
