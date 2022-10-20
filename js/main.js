@@ -1236,13 +1236,66 @@ function countdown(n){
  
   }
   // Only change code above this line
-  function addUpTo(n) {
-    return n * (n + 1) / 2;
-  }
+  // function addUpTo(n) {
+  //   return n * (n + 1) / 2;
+  // }
   
-  var time1 = performance.now();
-  addUpTo(1000000000);
-  var time2 = performance.now();
-  console.log(`Time Elapsed: ${(time2 - time1) / 1000} seconds.`)
-  var time1 = performance.now();
-  addUpTo(1000000000);
+  // var time1 = performance.now();
+  // addUpTo(1000000000);
+  // var time2 = performance.now();
+  // console.log(`Time Elapsed: ${(time2 - time1) / 1000} seconds.`)
+  // var time1 = performance.now();
+  // addUpTo(1000000000);
+
+
+//   function same(a1,a2){
+//     // should retrun true if every value in the array has the same ceprresonding value sq in a2 
+// // we can loop through the array and the loop thru second arr and nest it 
+
+
+
+
+//     // for(var i = 0; i < a1.length; i++) {  
+//     for(var j = 0; j < a2.length; j++) {  
+//       if(a1[j]** 2 == a2[j]){
+//         return true;
+//       }
+//       else{
+//         return false;
+//       }
+//     }
+//     // }
+
+//     // return true
+//   }
+
+
+function same(a1,a2){
+if(a1.length !== a2.length) return false;
+
+let frequencyCounter1 = {}
+let frequencyCounter2 = {}
+
+for(let val of a1){
+    frequencyCounter1[val] = (frequencyCounter1[val]  || 0) + 1
+  }
+for(let val of a2){
+  frequencyCounter2[val] = (frequencyCounter2[val]  || 0) + 1
+}
+
+
+for(let key in frequencyCounter1){
+if(!(key ** 2 in frequencyCounter2)){
+  return false
+}
+if(frequencyCounter2[key ** 2] !== frequencyCounter1[key]){
+  return false
+}
+}
+  console.log(frequencyCounter1)
+  console.log(frequencyCounter2)
+  return true
+}
+
+  console.log(same([1,2,4],[1,4,16]))
+  // console.log(same([1,2,1],[1,4,]))
