@@ -1485,11 +1485,11 @@ function countdown(n){
 //   let freqCntr1 = {},  freqCntr2 = {};
 //   if(n1.toString().length != n1.toString().length) return false;
   
-  // for(let val of n1.toString())freqCntr1[val] = (freqCntr1[val] || 0) + 1
+//   for(let val of n1.toString())freqCntr1[val] = (freqCntr1[val] || 0) + 1
 //   for(let val of n2.toString())freqCntr2[val] = (freqCntr2[val] || 0) + 1
   
 //   for(let key in freqCntr1){
-//     if(!(key in freqCntr2)) return false;
+//     // if(!(key in freqCntr2)) return false;
 //     if(freqCntr1[key] != freqCntr2[key]) return false;  
 //   }
 //   return true;
@@ -1498,6 +1498,7 @@ function countdown(n){
 // console.log( sameFrequency(182,281))
 // console.log( sameFrequency(34,14))
 // console.log(sameFrequency(3589578, 5879385))
+
 // function areThereDuplicates(...vars) {
 //   // good luck. (supply any arguments you deem necessary.)
 //   //edge   we want to  make data linear so turn all into an ar
@@ -1507,48 +1508,95 @@ function countdown(n){
 
 //   console.log(vars, dupObj);
 //   // loop through obj and see if any key are not equal  tp 2 pr more
-//   for(let key in dupObj) if((dupObj[key] >= 2) ) return true
+//   for(let key in dupObj) if((dupObj[key] > 1) ) return true
 //   return false
 // }
+
+
+
 // function areThereDuplicates(...vars) {
-//   //Multiple pointers
-//   // good luck. (supply any arguments you deem necessary.) 
-//   //edge   we want to  make data linear so turn all into an ar
-//   // let varAr = [...vars];
-//     let i = 0, temp;
-//     for(let j = 1; j < vars.length; j++) {
-//       if(temp === vars[j] ||
-//         temp === vars[i]) {
-//           return true
-//         }
-//         temp = vars[i];
-//         i++;
+//   //Multiple pointers ar needs to be sorted 
+//     let sorted = vars.sort((a,b)  => a - b);
+//     let curr = 0
+//     let nxt = 1
+
+//     while(nxt < sorted.length) {
+//       if(sorted[curr] === sorted[nxt]) return true
+
+//       curr++;
+//       nxt++;
 //     }
 //     return false
-//   // console.log(vars);
-  
+//   console.log( sorted);
 // }
 
-
-
-
-// function sumZero(arr){
-//   let left = 0
-//   let right = arr.length - 1
-//   while(left < right) {
-//     let sum = arr[left] + arr[right]
-//     if(sum === 0) {
-//         return  [arr[left], arr[right]]
-//     } else if (sum > 0){
-//       right--
-//     } else {
-//       left++;
-//     }
-
-//   }
-
-// }
-
-// console.log(areThereDuplicates(1, 2, 3))
+// console.log(areThereDuplicates(1, 2,4, 3))
 // console.log(areThereDuplicates(1, 2, 2))
 // console.log(areThereDuplicates('a', 'b', 'c', 'a'))
+
+// Write a function called averagePair. Given a sorted array of integers and a target average, determine if there is a pair of values in the array where the average of the pair equals the target average. There may be more than one pair that matches the average target.
+
+// Bonus Constraints:
+
+// Time: O(N)
+
+// Space: O(1)
+
+// Sample Input:
+
+// averagePair([1,2,3],2.5) // true
+// averagePair([1,3,3,5,6,7,10,12,19],8) // true
+// averagePair([-1,0,3,4,5,6], 4.1) // false
+// averagePair([],4) // false
+
+function averagePair(ar, avg){
+  // add whatever parameters you deem necessary - good luck!
+  //use mp pattern to calculate got to remember 
+   let  curr = 0, nxt = ar.length - 1;
+  //edge casee o(N) and o(1) space so loops 
+    if(ar.length === 0) return false;
+   
+
+    while(curr < nxt){ 
+      console.log(ar[curr], ar[nxt], (ar[curr] + ar[nxt]) / 2  )
+        let avgEq = ((ar[curr] + ar[nxt]) / 2)
+
+      if( avgEq === avg){
+          // console.log(ar[curr], ar[nxt])
+          return true
+        } else if( avgEq < avg) curr++
+        else nxt--
+        
+    }
+    return false
+}
+
+
+console.log(averagePair([1,2,3],2.5))
+// console.log(averagePair([1,3,3,5,6,7,10,12,19],8))
+// console.log(averagePair([-1,0,3,4,5,6], 4.1))
+
+
+
+
+
+
+
+function sumZero(arr){
+  let left = 0
+  let right = arr.length - 1
+  while(left < right) {
+    let sum = arr[left] + arr[right]
+    if(sum === 0) {
+        return  [arr[left], arr[right]]
+    } else if (sum > 0){
+      right--
+    } else {
+      left++;
+    }
+
+  }
+
+}
+
+
