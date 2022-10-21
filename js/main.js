@@ -1432,29 +1432,123 @@ function countdown(n){
 // }
 // console.log(sumZero([-3,-2,-1,0,1,2,3]))
 
-function countUniqueValues(ar){
-// use freq or pointers 
-// find all unique values   
+// function countUniqueValues(ar){
+// // use freq or pointers 
+// // find all unique values   
 
 
-// pointer way 
-//edge case 
+// // pointer way 
+// //edge case 
 
-if(ar.length === 0) return 0;
-let left = 0, right = 0, unqCnt = 1;
+// if(ar.length === 0) return 0;
+// let left = 0, right = 0, unqCnt = 1;
 
-while( right < ar.length){
-right++
-if(ar[left] !== ar[right]){
-left++
-ar[left] = ar[right]
-}
-}
-return left
-}
+// while( right < ar.length){
+// right++
+// if(ar[left] !== ar[right]){
+// left++
+// ar[left] = ar[right]
+// }
+// }
+// return left
+// }
 
-console.log(countUniqueValues([-3,-2,-1,0,1,2,3]))
-console.log(countUniqueValues([-3,-2,-2,0,1,2,3]))
-console.log(countUniqueValues([]))
-console.log(countUniqueValues([-2,-1,-1,0,1]))
+// console.log(countUniqueValues([-3,-2,-1,0,1,2,3]))
+// console.log(countUniqueValues([-3,-2,-2,0,1,2,3]))
+// console.log(countUniqueValues([]))
+// console.log(countUniqueValues([-2,-1,-1,0,1]))
 
+// function sameFrequency(n1,n2){
+//   // good luck. Add any arguments you deem necessary.
+
+//   //ed case 
+//   let freqCntr1 = {},  freqCntr2 = {};
+//   let s1 = n1.toString(), s2 = n2.toString()
+//   if(s1.length != s2.length) return false;
+  
+//   for(let val of s1)freqCntr1[val] = (freqCntr1[val] || 0) + 1
+//   for(let val of s2)freqCntr2[val] = (freqCntr2[val] || 0) + 1
+  
+//   for(let key in freqCntr1){
+//     if(!(key in freqCntr2)) return false;
+//     if(freqCntr1[key] != freqCntr2[key]) return false;  
+//   }
+//   return true;
+  
+// }
+
+
+// function sameFrequency(n1,n2){
+//   // good luck. Add any arguments you deem necessary.
+
+//   //ed case 
+//   let freqCntr1 = {},  freqCntr2 = {};
+//   if(n1.toString().length != n1.toString().length) return false;
+  
+  // for(let val of n1.toString())freqCntr1[val] = (freqCntr1[val] || 0) + 1
+//   for(let val of n2.toString())freqCntr2[val] = (freqCntr2[val] || 0) + 1
+  
+//   for(let key in freqCntr1){
+//     if(!(key in freqCntr2)) return false;
+//     if(freqCntr1[key] != freqCntr2[key]) return false;  
+//   }
+//   return true;
+  
+// }
+// console.log( sameFrequency(182,281))
+// console.log( sameFrequency(34,14))
+// console.log(sameFrequency(3589578, 5879385))
+// function areThereDuplicates(...vars) {
+//   // good luck. (supply any arguments you deem necessary.)
+//   //edge   we want to  make data linear so turn all into an ar
+//   // let varAr = [...vars];
+//   let dupObj = {};
+//   for(let v of vars) dupObj[v] = (dupObj[v] ||0) + 1;
+
+//   console.log(vars, dupObj);
+//   // loop through obj and see if any key are not equal  tp 2 pr more
+//   for(let key in dupObj) if((dupObj[key] >= 2) ) return true
+//   return false
+// }
+// function areThereDuplicates(...vars) {
+//   //Multiple pointers
+//   // good luck. (supply any arguments you deem necessary.) 
+//   //edge   we want to  make data linear so turn all into an ar
+//   // let varAr = [...vars];
+//     let i = 0, temp;
+//     for(let j = 1; j < vars.length; j++) {
+//       if(temp === vars[j] ||
+//         temp === vars[i]) {
+//           return true
+//         }
+//         temp = vars[i];
+//         i++;
+//     }
+//     return false
+//   // console.log(vars);
+  
+// }
+
+
+
+
+// function sumZero(arr){
+//   let left = 0
+//   let right = arr.length - 1
+//   while(left < right) {
+//     let sum = arr[left] + arr[right]
+//     if(sum === 0) {
+//         return  [arr[left], arr[right]]
+//     } else if (sum > 0){
+//       right--
+//     } else {
+//       left++;
+//     }
+
+//   }
+
+// }
+
+// console.log(areThereDuplicates(1, 2, 3))
+// console.log(areThereDuplicates(1, 2, 2))
+// console.log(areThereDuplicates('a', 'b', 'c', 'a'))
