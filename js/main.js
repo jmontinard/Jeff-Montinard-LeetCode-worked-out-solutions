@@ -1577,29 +1577,30 @@ console.log(averagePair([1,2,3],2.5))
 // console.log(averagePair([-1,0,3,4,5,6], 4.1))
 
 
+// isSubsequence('hello', 'hello world'); // true
+// isSubsequence('sing', 'sting'); // true
+// isSubsequence('abc', 'abracadabra'); // true
 
-
-
-
-
-function sumZero(arr){
-  let left = 0
-  let right = arr.length - 1
-  while(left < right) {
-    let sum = arr[left] + arr[right]
-    if(sum === 0) {
-        return  [arr[left], arr[right]]
-    } else if (sum > 0){
-      right--
-    } else {
-      left++;
-    }
-
-  }
-
+function isSubsequence(s1, s2) {
+  // good luck. Add any arguments you deem necessary.
+  // use MP arr must be sorted ?
+  // return t/f  if 
 }
 
 
-for(let i = 0; i < arr.length; i++) { 
+// function sumZero(arr){
+//   let left = 0
+//   let right = arr.length - 1
+//   while(left < right) {
+//     let sum = arr[left] + arr[right]
+//     if(sum === 0) {
+//         return  [arr[left], arr[right]]
+//     } else if (sum > 0){
+//       right--
+//     } else {
+//       left++;
+//     }
 
-}
+//   }
+
+// }
