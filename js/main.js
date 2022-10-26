@@ -1581,12 +1581,62 @@ console.log(averagePair([1,2,3],2.5))
 // isSubsequence('sing', 'sting'); // true
 // isSubsequence('abc', 'abracadabra'); // true
 
-function isSubsequence(s1, s2) {
-  // good luck. Add any arguments you deem necessary.
-  // use MP arr must be sorted ?
-  // return t/f  if 
-}
+// function isSubsequence(s1, s2) {
+//   // good luck. Add any arguments you deem necessary.
+//   // use MP arr must be sorted ?
+//   // return t/f  if 
+//   let i = 0, j = 0, word=[];
+//   while ( j < s2.length) {
+//     //if both val with these indexs are  === then we go to the next char in string 
+//     let temp;
+//     if ( s1[i] === s2[j] ) {  
+//       temp = s2[j]
+//       i++; j++; 
+//       word.push(temp)
+//     // if its not equal then we go to the next char in s2 since we are checking to see if the proper char is in there 
+//     } else if ( s1[i] !== s2[j] ) {
+//         j++
+//     }
+//   }
+  
+//   return  (s1 === word.join(""))
 
+// }
+// function isSubsequence(s1, s2) {
+
+//   let i = 0, j = 0, word=[];
+//   while ( j < s2.length) {
+//     let temp;
+//     if ( s1[i] === s2[j] ) {  
+//       temp = s2[j]
+//       i++; j++; 
+//       word.push(temp)
+//     } else if ( s1[i] !== s2[j]) j++
+//   }
+//   return  (s1 === word.join(""))
+
+// }
+
+// function isSubsequence(s1, s2) {
+
+//   let i = 0, j = 0; cnt=0
+//   while ( j < s2.length) {
+//     if ( s1[i] === s2[j] ) {  
+//       temp = s2[j]
+//       i++; j++; cnt++;
+//     } else if ( s1[i] !== s2[j]) j++
+//   }
+//   return  (cnt === s1.length)
+
+// }
+
+
+
+
+// console.log(isSubsequence('hello', 'hello world'))
+// console.log(isSubsequence('sing', 'sting'))
+
+// console.log(isSubsequence('abc', 'acb'))
 
 // function sumZero(arr){
 //   let left = 0
@@ -1604,3 +1654,41 @@ function isSubsequence(s1, s2) {
 //   }
 
 // }
+// Given an array of integers and a number, write a function called maxSubarraySum, which finds the maximum sum of a subarray with the length of the number passed to the function.
+
+// Note that a subarray must consist of consecutive elements from the original array. In the first example below, [100, 200, 300] is a subarray of the original array, but [100, 300] is not.
+
+// maxSubarraySum([100,200,300,400], 2) // 700
+// maxSubarraySum([1,4,2,10,23,3,1,0,20], 4)  // 39 
+// maxSubarraySum([-3,4,0,-2,6,-1], 2) // 5
+// maxSubarraySum([3,-2,7,-4,1,-1,4,-2,1],2) // 5
+// maxSubarraySum([2,3], 3) // null
+// Constraints:
+
+// Time Complexity - O(N)
+
+// Space Complexity - O(1)
+
+function maxSubarraySum(ar, num){
+  // add whatever parameters you deem necessary - good luck!
+  let maxSubarSum = 0, tempSubarSum = 0
+// edge case 
+  if(num > ar.length) return  null
+
+  // calculate out first subar maxsum 
+  for( let i = 0; i < num; i++){
+    maxSubarSum+= ar[i]
+  }
+  // set temp to max so they tech both back to 0 or 300 and 300
+  tempSubarSum = maxSubarSum
+
+  for( let i = num; i < ar.length; i++){
+    // this is the sliding window so we will change tmp to curent temp - the ar[i - num] which will be the cur index - num in this case 2 essentually  subtracting the frist val in the window and adding in cur index in this case 300 so the new windown on the first iteratation will be 200 and 300 and s0 on till the end  
+    tempSubarSum = tempSubarSum - ar[i - num] + ar[i]
+    //this picks the max of the 2 
+    maxSubarSum =  Math.max(maxSubarSum, tempSubarSum)
+  }
+  return maxSubarSum
+}
+
+console.log(maxSubarraySum([100,200,300,400,200], 2))
