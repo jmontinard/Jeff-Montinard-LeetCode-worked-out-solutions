@@ -1693,3 +1693,5 @@ function maxSubarraySum(ar, num){
 
 console.log(maxSubarraySum([100,200,300,400,200], 2))
 console.log(maxSubarraySum([100,200,300,400,200], 2))
+if (n <= 2) return 1;
+return fib(n-1) + fib(n-2);
