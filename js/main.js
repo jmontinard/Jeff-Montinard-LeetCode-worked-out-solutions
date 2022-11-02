@@ -1716,9 +1716,54 @@ function linearSearch(arr,val){
   // add whatever parameters you deem necessary - good luck!
     for(const num of arr){
       if(num === val) return arr.indexOf(val);
-    }
+    } 
     return -1;
 }
 
 console.log(
   linearSearch([10, 15, 20, 25, 30], 15))
+
+
+  // function binarySearch(arr,val){
+  //   // add whatever parameters you deem necessary - good luck!
+  //   let lo = 0, hi = arr.length, m = Math.floor((lo + hi) / 2 ), mid = arr[m]
+
+  //   while( lo < hi ){
+  //     if( arr[m] === val) return m
+  //     if( arr[lo] === val) return lo
+
+  //     else if(val < mid){
+  //       // lo++
+  //       hi =arr[m-1]
+  //     }else {
+  //       lo = arr[m+1]
+  //       // lo++
+        
+  //     }
+  //   }
+  //   return - 1
+  // }
+
+
+  function binarySearch(arr,val){
+    // add whatever parameters you deem necessary - good luck!
+    let lo = 0, hi = arr.length, m = Math.floor((lo + hi) / 2 ), mid = arr[m]
+
+    while( lo < hi ){
+      if( arr[m] === val) return m
+      if( arr[lo] === val) return lo
+
+      else if(val < mid){
+        lo++
+        hi =arr[m-1]
+      }else {
+        lo = arr[m+1]
+        hi--
+        
+      }
+    }
+    return - 1
+  }
+  // console.log(binarySearch([1,2,3,4,5],2))
+  // console.log(binarySearch([1,2,3,4,5],3))
+  // console.log(binarySearch([1,2,3,4,5],6) )
