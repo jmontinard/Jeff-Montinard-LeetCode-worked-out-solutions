@@ -1691,7 +1691,34 @@ function maxSubarraySum(ar, num){
   return maxSubarSum
 }
 
-console.log(maxSubarraySum([100,200,300,400,200], 2))
-console.log(maxSubarraySum([100,200,300,400,200], 2))
-if (n <= 2) return 1;
-return fib(n-1) + fib(n-2);
+// console.log(maxSubarraySum([100,200,300,400,200], 2))
+// console.log(maxSubarraySum([100,200,300,400,200], 2))
+// if (n <= 2) return 1;
+// return fib(n-1) + fib(n-2);
+
+
+// const linearSearch = (arr, val) =>{
+//     for(let i = 0; i < arr.length; i++){
+//       if(arr[i] === val) return i;
+//       else return -1;
+//     }
+
+// } 
+
+// function linearSearch(arr,val){
+//   // add whatever parameters you deem necessary - good luck!
+//     for(let i = 0; i < arr.length; i++){
+//       if(arr[i] === val) return i;
+//     }
+//     return -1;
+// }
+function linearSearch(arr,val){
+  // add whatever parameters you deem necessary - good luck!
+    for(const num of arr){
+      if(num === val) return arr.indexOf(val);
+    }
+    return -1;
+}
+
+console.log(
+  linearSearch([10, 15, 20, 25, 30], 15))
