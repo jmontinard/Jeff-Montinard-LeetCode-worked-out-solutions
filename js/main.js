@@ -1745,24 +1745,36 @@ console.log(
   // }
 
 
+  // function binarySearch(arr,val){
+  //   // add whatever parameters you deem necessary - good luck!
+  //   let lo = 0, hi = arr.length-1, m = Math.floor((lo + hi) / 2 ), mid = arr[m]
+    
+  
+  //   while( arr[m] !== val && lo <= hi ){
+  //     if(val < arr[m]){
+  //       hi = m-1
+  //     }else {
+  //       lo = m+1
+  //     }
+  //     m = Math.floor((lo + hi) / 2 )
+  //   }
+  //   if(arr[m] === val){
+  //     return m 
+  //   }
+  //   return -1
+  // }
+
   function binarySearch(arr,val){
     // add whatever parameters you deem necessary - good luck!
-    let lo = 0, hi = arr.length, m = Math.floor((lo + hi) / 2 ), mid = arr[m]
-
-    while( lo < hi ){
-      if( arr[m] === val) return m
-      if( arr[lo] === val) return lo
-
-      else if(val < mid){
-        lo++
-        hi =arr[m-1]
-      }else {
-        lo = arr[m+1]
-        hi--
-        
-      }
+    let lo = 0, hi = arr.length-1, m = Math.floor((lo + hi) / 2 )
+    while( arr[m] !== val && lo <= hi ){
+      if(val < arr[m]) hi = m-1
+      else lo = m+1
+      m = Math.floor((lo + hi) / 2 )
     }
-    return - 1
+    return arr[m] === val ? m : -1
+    // if(arr[m] === val) return m 
+    // return -1
   }
   // console.log(binarySearch([1,2,3,4,5],2))
   // console.log(binarySearch([1,2,3,4,5],3))
