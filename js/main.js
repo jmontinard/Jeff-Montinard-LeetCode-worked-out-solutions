@@ -1772,7 +1772,7 @@ console.log(
       else lo = m+1
       m = Math.floor((lo + hi) / 2 )
     }
-    return arr[m] === val ? m : -11
+    return arr[m] === val ? m : -1
     // if(arr[m] === val) return m 
     // return -1
   }
